@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Self-supervised learning for Video Action Recognition.">
+  <meta name="keywords" content="Action Recognition, Self-supervised Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benchmarking self-supervised video representation learning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);  
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon-32x32.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <!-- <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Benchmarking Self-supervised video representation learning</h1>
+          <br>
+          <h1 class="title is-3 publication-title">4th Workshop on Self-Supervised Learning: Theory and Practice, NeurIPS 2023</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+            <a href="https://akash2907.github.io/">Akash Kumar<sup>1</sup></a>,</span>
+            <span class="author-block">
+              <a href="https://in.linkedin.com/in/akumar-bitsp">Ashlesha Kumar<sup>2</sup></a>,</span>  
+              <span class="author-block">
+                <a href="https://vibhav-vineet.github.io/index.html#index">Vibhav Vineet<sup>3</sup></a>,</span>  
+            <span class="author-block">
+              <a href="https://www.crcv.ucf.edu/person/yogesh-singh-rawat/">Yogesh Singh Rawat<sup>1</sup></a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Central Florida<sup>1</sup>, BITS Pilani<sup>2</sup>, Microsoft<sup>3</sup></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://neurips.cc/virtual/2023/80842"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2306.06010"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=hH3XTg-P2Ks&t=2s&ab_channel=AkashKumar"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/AKASH2907/semi-sup-active-learning"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%"> -->
+        <!-- <source src="./images/ssl_active_aaai24.jpg"
+                type="video/mp4"> -->
+        
+      <!-- </video> -->
+      <div>
+        <img src='static/images/sslvideo_overview.png' alt='SSL' style='width:100%;height:100%;'>
+      </div>
+      <!-- <h2 class="subtitle has-text-centered">
+        Overview of our proposed approach: Attention masks M<sub>var</sub> and M<sub>grad</sub> are computed for temporal coherence and gradient smoothness using the spatio-temporal localization. 
+      </h2> -->
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Self-supervised learning is an effective way for label-free model pre-training, especially in 
+            the video domain where labeling is expensive. Existing self-supervised works in the video domain 
+            use varying experimental setups to demonstrate their effectiveness and comparison across approaches 
+            becomes challenging with no standard benchmark. In this work, we first provide a benchmark that 
+            enables a comparison of existing approaches on the same ground. Next, we study five different aspects 
+            of self-supervised learning important for videos; 1) dataset size, 2) complexity, 3) data distribution, 
+            4) data noise, and, 5) feature analysis. To facilitate this study, we focus on seven different methods 
+            along with seven different network architectures and perform an extensive set of experiments on 5 different 
+            datasets with an evaluation of two different downstream tasks. We present several interesting insights 
+            from this study which span across different properties of pretraining and target datasets, pretext-tasks, 
+            and model architectures among others. We further put some of these insights to the real test and propose 
+            an approach that requires a limited amount of training data and outperforms existing state-of-the-art approaches 
+            which use 10x pretraining data. We believe this work will pave the way for researchers to a better understanding 
+            of self-supervised pretext tasks in video representation learning. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div>
+          <img src='static/images/sslvideo_main_table.png' alt='SSL' style='width:100%;height:100%;'>
+        </div>
+
+        <div>
+          <img src='static/images/sslvideo_plots.png' alt='SSL' style='width:100%;height:100%;'>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Results. -->
+</section>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{kumar2023benchmarking,
+      title={Benchmarking self-supervised video representation learning},
+      author={Kumar, Akash and Kumar, Ashlesha and Vineet, Vibhav and Rawat, Yogesh Singh},
+      journal={arXiv preprint arXiv:2306.06010},
+      year={2023}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
